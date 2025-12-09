@@ -4,11 +4,14 @@
 
 ## 적용 기술
 
-- React (Vite)
+- JavaScript (ES6+)
+- React (Vite) / JSX
 - React Router
+- Axios (HTTP 요청)
 - OpenWeather API
 - Kakao Map API
 - CSS
+- Git
 
 ## 주요 기능
 
