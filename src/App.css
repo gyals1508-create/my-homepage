@@ -1,7 +1,9 @@
-@import "./AppLayout.css";
-@import "./Panel.css";
-@import "./Splitter.css";
-@import "./Controls.css";
+/* 앱 전체에 공통으로 들어가는 전역 스타일을 모아둔 파일 */
+
+@import "./panels/styles/PanelLayout.css";
+@import "./panels/styles/Panel.css";
+@import "./panels/styles/PanelSplitter.css";
+@import "./panels/styles/PanelControls.css";
 
 /* ===== 날씨 페이지 공통 패널 스타일 ===== */
 .weather-page {

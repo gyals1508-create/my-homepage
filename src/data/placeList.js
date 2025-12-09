@@ -1,3 +1,5 @@
+// (추천 여행지 목록 + 이미지 + 검색.선택)
+
 export const travelPlacesWithImages = [
   {
     name: "제주도",

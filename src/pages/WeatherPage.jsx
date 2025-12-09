@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useMapTarget } from "../contexts/MapContext";
+import { useMapTarget } from "../contexts/Mapstate";
 
 // 한국 주요 도시 리스트 (자동완성용)
 const CITY_LIST = [

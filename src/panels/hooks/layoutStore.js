@@ -1,4 +1,5 @@
-// src/hooks/layoutStorage.js (panelType + Travel 기본값 반영 버전)
+// 레이아웃 세팅 저장,불러오기
+
 export const KEY = "myhome_layout_v1";
 
 export const DEFAULT_LAYOUT = {

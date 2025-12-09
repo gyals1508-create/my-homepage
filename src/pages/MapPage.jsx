@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Map, MapMarker, useKakaoLoader } from "react-kakao-maps-sdk";
-import { useMapTarget } from "../contexts/MapContext";
+import { useMapTarget } from "../contexts/Mapstate";
 
 // 전국 단위 검색으로 전환할 때 사용할 주요 도시/지역 키워드
 const CITY_KEYWORDS = [

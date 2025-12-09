@@ -1,5 +1,12 @@
+/* 패널 전체 레이아웃을 배치하는 스타일 */
 
-html, body, #root { margin: 0; padding: 0; height: 100%; }
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
 .app-root {
   position: relative;
@@ -7,7 +14,8 @@ html, body, #root { margin: 0; padding: 0; height: 100%; }
   background: radial-gradient(circle at top, #444 0, #111 60%);
   color: #fff;
   overflow: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
 }
 
 .background-title {

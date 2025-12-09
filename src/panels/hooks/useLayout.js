@@ -1,11 +1,11 @@
-// src/hooks/usePanelLayoutState.js
-// 패널 레이아웃 전체 상태 관리 훅 (PanelGrid / PanelControls / App 이 모두 여기 의존)
+// 전체 패널 레이아웃 관리
+
 import { useEffect, useState } from "react";
 import {
   loadLayoutFromStorage,
   saveLayoutToStorage,
   DEFAULT_LAYOUT,
-} from "./layoutStorage";
+} from "./layoutStore";
 
 export const usePanelLayoutState = () => {
   // 기본 레이아웃 기준 초기값

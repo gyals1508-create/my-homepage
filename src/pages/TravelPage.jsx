@@ -1,9 +1,9 @@
 // src/pages/TravelPage.jsx
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { useMapTarget } from "../contexts/MapContext";
-import { travelInfo } from "../data/travelInfo";
-import travelPlacesWithImages from "../data/travelPlacesWithImages";
+import { useMapTarget } from "../contexts/Mapstate";
+import { travelInfo } from "../data/placeInfo";
+import { travelPlacesWithImages } from "../data/placeList";
 
 // 이름 매칭 헬퍼 (한글 + 영문)
 const matchesQuery = (loc, query) => {

@@ -1,0 +1,106 @@
+/* 전체 페이지 공통 영역 */
+.myorder_page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto 0;
+}
+
+/* 비었을 때 문구 중앙 정렬 */
+.myorder_empty {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #bbb;
+  text-align: center;
+}
+
+/* 테이블 + 버튼 감싸는 영역 */
+.myorder_table_wrapper {
+  width: 100%;
+  position: relative; /* 버튼 위치 기준 */
+  padding-bottom: 80px; /* 버튼 들어갈 공간 */
+}
+
+/* 테이블 스타일은 공용 Table.css 사용 (여기서는 추가 스타일 없음) */
+
+/* 내주문 / 주문내역 공통 버튼 스타일 */
+.order_confirm_button,
+.order_reset_button {
+  position: absolute;
+  right: 24px;
+  bottom: 16px;
+  background-color: #727dff;
+  padding: 12px 28px;
+  font-size: 14px;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.order_confirm_button:hover,
+.order_reset_button:hover {
+  background-color: #626fe7;
+  transform: translateY(-2px);
+}
+
+/* 주문내역(MyOrderHistoryPage) 전용 헤더 정렬 */
+.myorder_group table th:nth-child(1),
+.myorder_group table th:nth-child(3),
+.myorder_group table th:nth-child(4),
+.myorder_group table th:nth-child(5) {
+  text-align: center;
+  width: 12%;
+}
+
+.myorder_group table th:nth-child(2) {
+  text-align: left;
+  width: 52%;
+  padding-left: 22px;
+}
+
+/* ==============================
+   여기부터: 전체 선택 + 날짜 체크박스 UI
+============================== */
+
+/* 전체 선택 (오른쪽 상단, 살짝 안쪽/아래) */
+.myorder_select_all {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 56px 6px 0; /* 위, 오른쪽 여백 */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.myorder_select_all label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 날짜 제목 줄 (예: 2025. 11. 30 주문) */
+.myorder_date_heading {
+  margin: 8px 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 날짜 옆 체크박스 + 텍스트 한 줄 정렬 */
+.myorder_date_label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 체크박스 공통 스타일 (전체선택 + 날짜) */
+.myorder_select_all input,
+.myorder_date_label input {
+  width: 18px;
+  height: 18px;
+  transform: translateY(1px);
+  accent-color: #727dff; /* 버튼색과 맞춤 */
+}

@@ -1,10 +1,11 @@
-// src/PanelApp.jsx
-import PanelGrid from "./components/PanelGrid";
-import PanelControls from "./components/PanelControls";
-import { usePanelLayoutState } from "./hooks/usePanelLayoutState";
-import { usePanelDrag } from "./hooks/usePanelDrag";
+// 여러 패널을 한 화면에 배치하고 전체 구조를 잡아주는 컴포넌트
+
+import PanelGrid from "./PanelGrid";
+import PanelControls from "./PanelControls";
+import { usePanelLayoutState } from "./hooks/useLayout";
+import { usePanelDrag } from "./hooks/useDrag";
 import { useLocation } from "react-router-dom";
-import { SelectedPlaceContext } from "./contexts/SelectedPlaceContext";
+import { SelectedPlaceContext } from "../contexts/PlaceState";
 import { Link } from "react-router-dom";
 
 function PanelApp() {

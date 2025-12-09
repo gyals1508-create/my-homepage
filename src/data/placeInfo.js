@@ -1,3 +1,5 @@
+// (여행지 상세 정보)
+
 export const travelInfo = {
   서울: {
     desc: "문화·역사·쇼핑을 한 번에 즐길 수 있는 대표 도시",

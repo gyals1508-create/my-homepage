@@ -1,4 +1,5 @@
-// src/hooks/usePanelDrag.js
+// 패널 드래그 동작 관리
+
 import { useRef, useState } from "react";
 
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v));

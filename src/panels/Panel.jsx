@@ -1,3 +1,5 @@
+// 하나의 패널이 화면에서 어떻게 생기고 동작하는지 정의한 컴포넌트
+
 import TravelPage from "../pages/TravelPage";
 import CalendarPage from "../pages/CalendarPage";
 import WeatherPage from "../pages/WeatherPage";

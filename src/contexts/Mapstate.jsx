@@ -1,3 +1,5 @@
+// 지도가 어느 위치를 보여줄지 결정하는 기능을 담당한다
+
 import { createContext, useContext, useState } from "react";
 
 const MapContext = createContext();

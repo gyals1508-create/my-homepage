@@ -1,4 +1,5 @@
-// src/components/PanelGrid.jsx - 패널 객체 매핑 + key 경고 해결 버전
+// 패널들이 실제로 어떤 위치에 배치될지 계산해서 화면에 배치하는 역할
+
 import Panel from "./Panel.jsx";
 
 function PanelGrid({ layout, drag }) {

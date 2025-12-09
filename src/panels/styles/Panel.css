@@ -1,4 +1,5 @@
-/* Panel layout & iframe container */
+/* 개별 패널의 기본 UI 스타일 */
+
 .panel {
   position: relative;
   padding: 8px;

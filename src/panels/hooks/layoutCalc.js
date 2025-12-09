@@ -1,3 +1,4 @@
+// 레이아웃 계산
 
 export function getLayoutStyles(count, cols, rows) {
   if (count === 1)

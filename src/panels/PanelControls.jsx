@@ -1,4 +1,5 @@
-// src/components/PanelControls.jsx (safe visibleIds handling)
+// 패널을 접고 펼치거나 이동시키는 버튼·조작 요소를 담당하는 컴포넌트
+
 function PanelControls({
   panels,
   visibleIds,

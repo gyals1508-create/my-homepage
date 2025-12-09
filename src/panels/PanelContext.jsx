@@ -1,6 +1,7 @@
-// src/panels/panelLayoutContext.jsx
+// 패널들이 서로 공유해야 하는 값들을 모아두는 곳
+
 import { createContext, useContext } from "react";
-import { usePanelLayoutState } from "../hooks/usePanelLayoutState";
+import { usePanelLayoutState } from "./hooks/useLayout";
 
 const PanelLayoutContext = createContext(null);
 

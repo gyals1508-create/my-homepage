@@ -1,7 +1,7 @@
 // src/pages/HomePage.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import travelPlacesWithImages from "../data/travelPlacesWithImages";
+import { travelPlacesWithImages } from "../data/placeList";
 
 /**
  * 메인 홈 화면
