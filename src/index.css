@@ -1,0 +1,12 @@
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden; /* 가로 스크롤만 막기 */
+  /* overflow: hidden;  이 줄은 지우기 또는 주석 처리 */
+}
+
+body {
+  background: #222;
+}

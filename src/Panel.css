@@ -1,0 +1,90 @@
+/* Panel layout & iframe container */
+.panel {
+  position: relative;
+  padding: 8px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  border-radius: 24px; /* 24px 24px 0 0 이런 식이면 24px 로 통일 */
+  overflow: hidden; /* 안쪽 캘린더 둥근 모서리가 잘리지 않게 */
+}
+
+.panel-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.panel-active .panel-inner {
+  border-color: #ffe27a;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.panel-title {
+  font-size: 12px;
+  color: #ddd;
+  min-width: 60px;
+}
+
+.go-button,
+.close-button {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.go-button {
+  background: #ffe27a;
+  color: #222;
+}
+
+.close-button {
+  background: transparent;
+  color: #ccc;
+}
+
+.panel-body {
+  flex: 1;
+  padding: 16px 16px 24px;
+  box-sizing: border-box;
+  overflow-y: auto; /* 기본: 스크롤 */
+}
+
+/* 1번(여행), 3번(날씨) 패널은 개별 페이지에서 높이를 맞춰 쓰므로 스크롤 제거 */
+.panel-body--travel,
+.panel-body--weather {
+  overflow-y: hidden; /* hidden → auto */
+  padding: 0px 16px 48px; /* 아래 여유 조금 더 */
+}
+
+.panel-frame {
+  height: 100%;
+  padding: 18px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.panel-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 13px;
+}
+.panel-body--calendar {
+  overflow-y: hidden;
+  padding: 0 16px 48px;
+}
