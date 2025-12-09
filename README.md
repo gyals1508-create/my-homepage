@@ -6,12 +6,12 @@
 
 - JavaScript (ES6+)
 - React (Vite) / JSX
-- React Router
+- React Router (react-router-dom)
 - Axios (HTTP 요청)
+- Kakao Map (react-kakao-maps-sdk)
 - OpenWeather API
-- Kakao Map API
 - CSS
-- Git
+- Git / GitHub
 
 ## 주요 기능
 
