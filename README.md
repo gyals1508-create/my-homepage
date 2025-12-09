@@ -20,4 +20,4 @@
 - 지도 기반 위치 확인
 - 일정 관리 패널 제공
 
-- ![미리보기](./src/assets/Test.png)
+- ![미리보기](./src/assets/images/Test.png)
