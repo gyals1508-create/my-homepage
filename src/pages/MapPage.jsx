@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Map, MapMarker, useKakaoLoader } from "react-kakao-maps-sdk";
+import { useState, useEffect } from "react";
+import { Map, MapMarker, Roadview, useKakaoLoader } from "react-kakao-maps-sdk";
 import { useMapTarget } from "../contexts/Mapstate";
 
 // 전국 단위 검색으로 전환할 때 사용할 주요 도시/지역 키워드
@@ -35,17 +35,40 @@ const CITY_KEYWORDS = [
 ];
 
 export default function MapPage() {
-  const { mapTarget } = useMapTarget();
+  const { mapTarget, setMapTarget } = useMapTarget();
   const [map, setMap] = useState(null);
   const [markers, setMarkers] = useState([]);
   const [activeCategory, setActiveCategory] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [roadviewStage, setRoadviewStage] = useState("off"); // off | overlay | view
 
   useKakaoLoader({
     appkey: import.meta.env.VITE_KAKAO_MAP_KEY,
     libraries: ["clusterer", "drawing", "services"],
   });
 
+  // 로드뷰 경로(파란 길) 오버레이 토글
+  useEffect(() => {
+    if (!map || !window.kakao) return;
+    const { MapTypeId } = window.kakao.maps;
+
+    // 기존 ROADVIEW 오버레이 제거
+    map.removeOverlayMapTypeId(MapTypeId.ROADVIEW);
+
+    // overlay 단계일 때만 파란길 표시
+    if (roadviewStage === "overlay") {
+      map.addOverlayMapTypeId(MapTypeId.ROADVIEW);
+    }
+  }, [map, roadviewStage]);
+
+  // 로드뷰 버튼 3단계: off → overlay → view → off ...
+  const handleRoadviewClick = () => {
+    setRoadviewStage((prev) =>
+      prev === "off" ? "overlay" : prev === "overlay" ? "view" : "off"
+    );
+  };
+
+  // 카테고리 검색 (카페/편의점/음식점)
   const handleCategorySearch = (code) => {
     if (!map || !window.kakao) return;
     const kakao = window.kakao;
@@ -77,6 +100,7 @@ export default function MapPage() {
     );
   };
 
+  // 키워드 검색
   const handleKeywordSearch = () => {
     if (!map || !window.kakao) return;
     const q = searchQuery.trim();
@@ -147,21 +171,55 @@ export default function MapPage() {
             placeholder="장소 검색 예: 스타벅스, 구미 스타벅스"
           />
           <button onClick={handleKeywordSearch}>검색</button>
+          <button onClick={handleRoadviewClick}>
+            {roadviewStage === "off" && "로드뷰 경로"}
+            {roadviewStage === "overlay" && "이 위치 로드뷰"}
+            {roadviewStage === "view" && "지도 보기"}
+          </button>
         </div>
       </div>
 
       <div className="map-wrapper">
-        <Map
-          center={{ lat: mapTarget.lat, lng: mapTarget.lng }}
-          style={{ width: "100%", height: "100%" }}
-          level={3}
-          onCreate={setMap}
-        >
-          {/* 카테고리/검색 결과 마커만 표시 */}
-          {markers.map((m) => (
-            <MapMarker key={m.id} position={{ lat: m.lat, lng: m.lng }} />
-          ))}
-        </Map>
+        {roadviewStage === "view" ? (
+          // 2단계(overlay)에서 지도 클릭으로 정한 위치 기준 로드뷰
+          <Roadview
+            position={{
+              lat: mapTarget.lat,
+              lng: mapTarget.lng,
+              radius: 50,
+            }}
+            style={{ width: "100%", height: "100%" }}
+          />
+        ) : (
+          <Map
+            center={{ lat: mapTarget.lat, lng: mapTarget.lng }}
+            style={{ width: "100%", height: "100%" }}
+            level={3}
+            onCreate={setMap}
+            onClick={(_map, mouseEvent) => {
+              const latlng = mouseEvent.latLng;
+              setMapTarget({
+                ...mapTarget,
+                lat: latlng.getLat(),
+                lng: latlng.getLng(),
+              });
+            }}
+          >
+            {/* 클릭해서 선택한 위치(로드뷰 기준 위치) */}
+            <MapMarker
+              position={{ lat: mapTarget.lat, lng: mapTarget.lng }}
+              title="선택 위치"
+            />
+            {/* 카테고리/검색 결과 마커 */}
+            {markers.map((m) => (
+              <MapMarker
+                key={m.id}
+                position={{ lat: m.lat, lng: m.lng }}
+                title={m.name}
+              />
+            ))}
+          </Map>
+        )}
       </div>
     </div>
   );
